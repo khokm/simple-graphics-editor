@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CreateFractalDialog</class>
+ <widget class="QDialog" name="CreateFractalDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>703</width>
+    <height>704</height>
+   </rect>
+  </property>
+  <property name="focusPolicy">
+   <enum>Qt::ClickFocus</enum>
+  </property>
+  <property name="windowTitle">
+   <string>Создание фрактального дерева</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_3">
+   <item row="0" column="0" rowspan="3">
+    <widget class="FractalGLWidget" name="openGLWidget">
+     <property name="minimumSize">
+      <size>
+       <width>150</width>
+       <height>250</height>
+      </size>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QGroupBox" name="groupBox">
+     <property name="maximumSize">
+      <size>
+       <width>240</width>
+       <height>250</height>
+      </size>
+     </property>
+     <property name="title">
+      <string>Свойства</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="6" column="0" colspan="2">
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="text">
+         <string>Ввести случайные значения</string>
+        </property>
+        <property name="autoDefault">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string>Угол ветвления:</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+        <property name="buddy">
+         <cstring>branchAngle</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0" colspan="2">
+       <widget class="QCheckBox" name="firstRight">
+        <property name="text">
+         <string>Первая ветка - справа</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QDoubleSpinBox" name="branchAngle">
+        <property name="minimum">
+         <double>1.000000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>179.000000000000000</double>
+        </property>
+        <property name="value">
+         <double>19.000000000000000</double>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_5">
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string>Количество веток:</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+        <property name="buddy">
+         <cstring>branchCount</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QSpinBox" name="branchCount">
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>20</number>
+        </property>
+        <property name="value">
+         <number>3</number>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_4">
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string>Глубина дерева:</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+        <property name="buddy">
+         <cstring>treeDeep</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QSpinBox" name="treeDeep">
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>10</number>
+        </property>
+        <property name="value">
+         <number>8</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>449</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="3" column="0" colspan="2">
+    <widget class="QPushButton" name="createAndExit">
+     <property name="text">
+      <string>Добавить дерево на сцену</string>
+     </property>
+     <property name="autoDefault">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QLabel" name="totalCountLabel">
+     <property name="font">
+      <font>
+       <pointsize>8</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Суммарное количество ветвей:</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+  <zorder>createAndExit</zorder>
+  <zorder>openGLWidget</zorder>
+  <zorder>groupBox</zorder>
+  <zorder>totalCountLabel</zorder>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>FractalGLWidget</class>
+   <extends>QOpenGLWidget</extends>
+   <header>fractalglwidget.h</header>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>treeDeep</tabstop>
+  <tabstop>branchCount</tabstop>
+  <tabstop>branchAngle</tabstop>
+  <tabstop>firstRight</tabstop>
+  <tabstop>pushButton_2</tabstop>
+  <tabstop>createAndExit</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>branchCount</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>CreateFractalDialog</receiver>
+   <slot>RebuildTree()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>646</x>
+     <y>85</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>526</x>
+     <y>429</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>treeDeep</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>CreateFractalDialog</receiver>
+   <slot>RebuildTree()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>684</x>
+     <y>159</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>544</x>
+     <y>460</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>branchAngle</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>CreateFractalDialog</receiver>
+   <slot>RebuildTree()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>660</x>
+     <y>114</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>605</x>
+     <y>371</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>firstRight</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>CreateFractalDialog</receiver>
+   <slot>RebuildTree()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>684</x>
+     <y>187</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>541</x>
+     <y>289</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>RebuildTree()</slot>
+ </slots>
+</ui>
